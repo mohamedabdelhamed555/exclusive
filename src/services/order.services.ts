@@ -10,6 +10,7 @@ export async function handlePayment(formState:addressFormStateType , formData : 
         "city": formData.get("city")
         }
         const cartId = formData.get("cartId")
+        
         const PaymentMethod = formData.get("PaymentMethod")
 
         const parsedData = addressFormSchema.safeParse({...shippingAddress,cartId,PaymentMethod})
@@ -41,6 +42,8 @@ export async function handlePayment(formState:addressFormStateType , formData : 
 
 
         const data = await res.json()
+        console.log("Checkout API response:", data)
+
         if(!res.ok){
             return {
                 success : false,
@@ -56,6 +59,7 @@ export async function handlePayment(formState:addressFormStateType , formData : 
             message : data.message || "Your Payment Done Successfully",
             callbackUrl : PaymentMethod === "cash" ? "/allorders" : data.session.url,
         }        
+        
     } catch (error) {
         return {
             success : false,
