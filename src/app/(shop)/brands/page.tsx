@@ -59,8 +59,6 @@ export default function BrandsPage() {
             </div>
           ))}
         </div>
-
-        {/* AlertDialog */}
         <AlertDialog open={open} onOpenChange={setOpen}>
           <AlertDialogContent>
             <AlertDialogHeader>
