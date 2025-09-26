@@ -4,8 +4,7 @@ import { getProductsByCategory } from '@/services/products.services';
 
 export default async function CategoryProductsPage({ params }: { params: { categoryId: string } }) {
     const productsResponse = await getProductsByCategory(params.categoryId);
-    const products = productsResponse?.data || []; // fallback لو undefined
-
+    const products = productsResponse?.data || []; 
     return (
         <section className="py-10">
             <div className="container mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
