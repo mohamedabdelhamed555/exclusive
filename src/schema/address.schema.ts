@@ -39,7 +39,7 @@ export const addressFormState = {
     PaymentMethod:[]
   },
   message : null,
-  callbackUrl:""
+  callbackUrl:"/"
 }
 
 export type addressFormStateType = {
